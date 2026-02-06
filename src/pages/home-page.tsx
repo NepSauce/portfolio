@@ -1,4 +1,4 @@
-function HomePage() {
+function homePage() {
     const name = "Zawad Atif";
 
     return (
@@ -8,4 +8,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default homePage;
