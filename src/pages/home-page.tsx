@@ -75,31 +75,44 @@ function TerminalTyping({ text = "", speed = 120 }) {
 
 function HomePage() {
     return (
-        <div style={{
-            background: "#1e1e2f",
-            minHeight: "100vh",
-            width: "100vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "'Fira Mono', 'Consolas', monospace",
-            overflow: "hidden"
-        }}>
-            <div className="terminal-box" style={{
-                width: "100%",
-                maxWidth: "600px",
-                minHeight: "320px",
+        <div
+            style={{
+                background: "#1e1e2f",
+                minHeight: "100vh",
+                width: "100vw",
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                boxSizing: "border-box"
-            }}>
-                <div style={{ fontSize: "2.2rem", marginBottom: "1rem" }}>
+                fontFamily: "'Fira Mono', 'Consolas', monospace",
+                overflow: "hidden"
+            }}
+        >
+            <div
+                style={{
+                    textAlign: "center",
+                    width: "100%",
+                }}
+            >
+                <div
+                    style={{
+                        fontSize: "5rem",
+                        fontWeight: 700,
+                        color: "#00ff00",
+                        marginBottom: "2rem",
+                        letterSpacing: "0.05em",
+                    }}
+                >
                     Hi, I'm Zawad <TerminalTyping text="Atif" speed={350} />
                 </div>
-                <div className="terminal-comment" style={{ fontSize: "1.1rem", marginTop: "0.5rem" }}>
-                    <span>// Welcome to my portfolio</span>
+                <div
+                    style={{
+                        fontSize: "2rem",
+                        color: "#fff",
+                        marginTop: "1rem",
+                        opacity: 0.85,
+                    }}
+                >
+                    // Welcome to my portfolio
                 </div>
             </div>
         </div>
