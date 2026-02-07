@@ -137,18 +137,7 @@ function HomePage() {
                     paddingRight: 0,
                 }}
             >
-                <div
-                    style={{
-                        fontSize: "5rem",
-                        fontWeight: 700,
-                        marginBottom: "2.5rem",
-                        letterSpacing: "0.01em",
-                        fontFamily: "'VT323', monospace",
-                        textShadow: "0 1px 0 #222, 0 2px 0 #111",
-                        textAlign: "center",
-                        display: "inline-block",
-                    }}
-                >
+                <div className="code-font" style={{marginBottom: "2.5rem", display: "inline-block"}}>
                     <div style={{color: "white"}}>Hi, I'm Zawad</div>
                     <div><TerminalTyping text="Atif" speed={350} /></div>
                 </div>
