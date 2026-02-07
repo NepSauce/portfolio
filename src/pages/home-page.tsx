@@ -63,7 +63,7 @@ function TerminalTyping({ text = "", speed = 120 }) {
     }, [mode, index, text]);
 
     return (
-        <span style={{ color: "#00ff00", background: "#222", padding: "0 4px", borderRadius: "4px" }}>
+        <span style={{ color: "#00ff00" }}>
             {displayed}
             <span className="terminal-cursor">█</span>
         </span>
@@ -74,47 +74,93 @@ function TerminalTyping({ text = "", speed = 120 }) {
 
 
 function HomePage() {
+    const [command, setCommand] = useState("");
+    const handleCommandChange = (e: React.ChangeEvent<HTMLInputElement>) => setCommand(e.target.value);
+    const handleCommandSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // For now, just clear the input
+        setCommand("");
+    };
+
     return (
         <div
             style={{
-                background: "#1e1e2f",
+                background: "linear-gradient(180deg, #232323 0%, #2a2a2a 100%)",
                 minHeight: "100vh",
                 width: "100vw",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
                 fontFamily: "'Fira Mono', 'Consolas', monospace",
-                overflow: "hidden"
+                color: "#00ff00",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "stretch",
+                boxSizing: "border-box",
+                padding: 0,
+                position: "relative",
+                overflow: "hidden",
             }}
         >
+            {/* Intro at top center */}
             <div
                 style={{
-                    textAlign: "center",
                     width: "100%",
+                    textAlign: "center",
+                    paddingTop: "32px",
+                    paddingLeft: 0,
+                    paddingRight: 0,
                 }}
             >
                 <div
                     style={{
                         fontSize: "5rem",
                         fontWeight: 700,
-                        color: "#00ff00",
-                        marginBottom: "2rem",
-                        letterSpacing: "0.05em",
+                        marginBottom: "2.5rem",
+                        letterSpacing: "0.01em",
+                        fontFamily: "'VT323', 'Fira Mono', 'Consolas', monospace",
+                        textShadow: "0 1px 0 #222, 0 2px 0 #111",
+                        textAlign: "center",
+                        display: "inline-block",
                     }}
                 >
-                    Hi, I'm Zawad <TerminalTyping text="Atif" speed={350} />
+                    <div>Hi, I'm Zawad</div>
+                    <div><TerminalTyping text="Atif" speed={350} /></div>
                 </div>
-                <div
-                    style={{
-                        fontSize: "2rem",
-                        color: "#fff",
-                        marginTop: "1rem",
-                        opacity: 0.85,
-                    }}
-                >
+            </div>
+            {/* Terminal content */}
+            <div style={{ padding: "0 24px 0 24px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                <div style={{ fontSize: "2.2rem", opacity: 0.85, marginBottom: "2.5rem", textAlign: "left" }}>
                     // Welcome to my portfolio
                 </div>
             </div>
+            {/* Command input at bottom */}
+            <form
+                onSubmit={handleCommandSubmit}
+                style={{
+                    width: "100%",
+                    padding: "0 24px 32px 24px",
+                    boxSizing: "border-box",
+                    display: "flex",
+                    alignItems: "center",
+                }}
+            >
+                <span style={{ fontWeight: 600, fontSize: "1.2rem", marginRight: 8 }}>$</span>
+                <input
+                    type="text"
+                    value={command}
+                    onChange={handleCommandChange}
+                    style={{
+                        background: "transparent",
+                        border: "none",
+                        outline: "none",
+                        color: "#00ff00",
+                        fontSize: "1.2rem",
+                        fontFamily: "'Fira Mono', 'Consolas', monospace",
+                        flex: 1,
+                    }}
+                    autoFocus
+                    spellCheck={false}
+                />
+            </form>
         </div>
     );
 }
