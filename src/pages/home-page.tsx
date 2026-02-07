@@ -85,10 +85,10 @@ function HomePage() {
     return (
         <div
             style={{
-                background: "linear-gradient(180deg, #232323 0%, #2a2a2a 100%)",
+                background: "linear-gradient(180deg, #181818 0%, #232323 100%)",
                 minHeight: "100vh",
                 width: "100vw",
-                fontFamily: "'Fira Mono', 'Consolas', monospace",
+                fontFamily: "'VT323', monospace",
                 color: "#00ff00",
                 display: "flex",
                 flexDirection: "column",
@@ -100,6 +100,33 @@ function HomePage() {
                 overflow: "hidden",
             }}
         >
+            {/* CRT curve/vignette overlay */}
+            <div
+                style={{
+                    pointerEvents: "none",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    zIndex: 3,
+                    background:
+                        "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.18) 100%)",
+                }}
+            />
+            {/* Scanline overlay for vintage effect */}
+            <div
+                style={{
+                    pointerEvents: "none",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    zIndex: 2,
+                    background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.10) 4px)",
+                }}
+            />
             {/* Intro at top center */}
             <div
                 style={{
@@ -116,13 +143,13 @@ function HomePage() {
                         fontWeight: 700,
                         marginBottom: "2.5rem",
                         letterSpacing: "0.01em",
-                        fontFamily: "'VT323', 'Fira Mono', 'Consolas', monospace",
+                        fontFamily: "'VT323', monospace",
                         textShadow: "0 1px 0 #222, 0 2px 0 #111",
                         textAlign: "center",
                         display: "inline-block",
                     }}
                 >
-                    <div>Hi, I'm Zawad</div>
+                    <div style={{color: "white"}}>Hi, I'm Zawad</div>
                     <div><TerminalTyping text="Atif" speed={350} /></div>
                 </div>
             </div>
@@ -154,7 +181,7 @@ function HomePage() {
                         outline: "none",
                         color: "#00ff00",
                         fontSize: "1.2rem",
-                        fontFamily: "'Fira Mono', 'Consolas', monospace",
+                        fontFamily: "'VT323', monospace",
                         flex: 1,
                     }}
                     autoFocus
