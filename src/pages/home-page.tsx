@@ -110,8 +110,8 @@ function HomePage() {
                     width: "100vw",
                     height: "100vh",
                     zIndex: 3,
-                    background:
-                        "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.18) 100%)",
+                        background:
+                            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)",
                 }}
             />
             {/* Scanline overlay for vintage effect */}
@@ -124,7 +124,7 @@ function HomePage() {
                     width: "100vw",
                     height: "100vh",
                     zIndex: 2,
-                    background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.10) 4px)",
+                        background: "repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(0,0,0,0.05) 17px)",
                 }}
             />
             {/* Intro at top center */}
@@ -132,7 +132,7 @@ function HomePage() {
                 style={{
                     width: "100%",
                     textAlign: "center",
-                    paddingTop: "32px",
+                    paddingTop: "64px",
                     paddingLeft: 0,
                     paddingRight: 0,
                 }}
