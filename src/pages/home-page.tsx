@@ -142,41 +142,30 @@ function HomePage() {
                     <div><TerminalTyping text="Atif" speed={350} /></div>
                 </div>
             </div>
-            {/* Terminal content */}
-            <div style={{ padding: "0 24px 0 24px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                <div style={{ fontSize: "2.2rem", opacity: 0.85, marginBottom: "2.5rem", textAlign: "left" }}>
-                    // Welcome to my portfolio
+            {/* Terminal UI under introduction */}
+            <div className="terminal-box" style={{ margin: "0 auto", maxWidth: 800, minHeight: 220 }}>
+                <div className="terminal-header">PortfolioShell v1.0.0</div>
+                <div className="terminal-comment">Copyright (c) Zawad Atif. All rights reserved.</div>
+                <div className="terminal-comment">Type <span style={{ color: '#5eff00' }}>'help'</span> for available commands.</div>
+                <div style={{ marginTop: '2rem', color: '#5eff00', fontFamily: 'Fira Mono, Consolas, monospace' }}>
+                    $ <input
+                        type="text"
+                        value={command}
+                        onChange={handleCommandChange}
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            outline: "none",
+                            color: "#5eff00",
+                            fontSize: "1.2rem",
+                            fontFamily: "Fira Mono, Consolas, monospace",
+                            width: "80%",
+                        }}
+                        autoFocus
+                        spellCheck={false}
+                    />
                 </div>
             </div>
-            {/* Command input at bottom */}
-            <form
-                onSubmit={handleCommandSubmit}
-                style={{
-                    width: "100%",
-                    padding: "0 24px 32px 24px",
-                    boxSizing: "border-box",
-                    display: "flex",
-                    alignItems: "center",
-                }}
-            >
-                <span style={{ fontWeight: 600, fontSize: "1.2rem", marginRight: 8 }}>$</span>
-                <input
-                    type="text"
-                    value={command}
-                    onChange={handleCommandChange}
-                    style={{
-                        background: "transparent",
-                        border: "none",
-                        outline: "none",
-                        color: "#00ff00",
-                        fontSize: "1.2rem",
-                        fontFamily: "'VT323', monospace",
-                        flex: 1,
-                    }}
-                    autoFocus
-                    spellCheck={false}
-                />
-            </form>
         </div>
     );
 }
