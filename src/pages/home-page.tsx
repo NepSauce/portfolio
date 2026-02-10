@@ -85,7 +85,7 @@ function HomePage() {
     return (
         <div
             style={{
-                background: "linear-gradient(180deg, #181818 0%, #232323 100%)",
+                background: "#181818",
                 minHeight: "100vh",
                 width: "100vw",
                 fontFamily: "'VT323', monospace",
@@ -100,33 +100,40 @@ function HomePage() {
                 overflow: "hidden",
             }}
         >
-            {/* CRT curve/vignette overlay */}
-            <div
-                style={{
-                    pointerEvents: "none",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 3,
-                        background:
-                            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)",
-                }}
-            />
+            {/* CRT vignette overlay */}
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 3,
+                background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%)"
+            }} />
             {/* Scanline overlay for vintage effect */}
-            <div
-                style={{
-                    pointerEvents: "none",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 2,
-                        background: "repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(0,0,0,0.05) 17px)",
-                }}
-            />
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 2,
+                background: "repeating-linear-gradient(0deg, transparent, transparent 13px, rgba(0,0,0,0.10) 14px)",
+                mixBlendMode: "overlay"
+            }} />
+            {/* Subtle CRT glow */}
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 4,
+                background: "radial-gradient(circle at 50% 40%, rgba(94,255,0,0.08) 0%, rgba(0,0,0,0) 60%)"
+            }} />
             {/* Intro at top center */}
             <div
                 style={{
@@ -142,41 +149,37 @@ function HomePage() {
                     <div><TerminalTyping text="Atif" speed={350} /></div>
                 </div>
             </div>
-            {/* Terminal content */}
-            <div style={{ padding: "0 24px 0 24px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                <div style={{ fontSize: "2.2rem", opacity: 0.85, marginBottom: "2.5rem", textAlign: "left" }}>
-                    // Welcome to my portfolio
+            {/* Terminal UI under introduction */}
+            <div className="terminal-box" style={{ margin: "0 auto", maxWidth: 980, minWidth: 520, minHeight: 220 }}>
+                <div className="terminal-header">PortfolioShell v1.0.0</div>
+                <div className="terminal-comment">Copyright (c) Zawad Atif. All rights reserved.</div>
+                <div className="terminal-comment">Type <span style={{ color: '#5eff00' }}>'help'</span> for available commands.</div>
+                <div style={{ marginTop: '2.2rem', display: 'flex', alignItems: 'center', fontFamily: 'Fira Mono, Consolas, monospace', fontSize: '1.25rem', color: '#5eff00', position: 'relative', zIndex: 2 }}>
+                    <span style={{ color: '#7fff7f', marginRight: 6 }}>
+                        <span style={{ color: '#5eff00' }}>zawad@portfolio</span>
+                        <span style={{ color: '#b2ffb2' }}>:</span>
+                        <span style={{ color: '#00d400' }}>&#126;</span>
+                        <span style={{ color: '#b2ffb2' }}>$</span>
+                    </span>
+                    <input
+                        type="text"
+                        value={command}
+                        onChange={handleCommandChange}
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            outline: "none",
+                            color: "#5eff00",
+                            fontSize: "1.25rem",
+                            fontFamily: "Fira Mono, Consolas, monospace",
+                            width: "82%",
+                            marginLeft: 2,
+                        }}
+                        autoFocus
+                        spellCheck={false}
+                    />
                 </div>
             </div>
-            {/* Command input at bottom */}
-            <form
-                onSubmit={handleCommandSubmit}
-                style={{
-                    width: "100%",
-                    padding: "0 24px 32px 24px",
-                    boxSizing: "border-box",
-                    display: "flex",
-                    alignItems: "center",
-                }}
-            >
-                <span style={{ fontWeight: 600, fontSize: "1.2rem", marginRight: 8 }}>$</span>
-                <input
-                    type="text"
-                    value={command}
-                    onChange={handleCommandChange}
-                    style={{
-                        background: "transparent",
-                        border: "none",
-                        outline: "none",
-                        color: "#00ff00",
-                        fontSize: "1.2rem",
-                        fontFamily: "'VT323', monospace",
-                        flex: 1,
-                    }}
-                    autoFocus
-                    spellCheck={false}
-                />
-            </form>
         </div>
     );
 }
