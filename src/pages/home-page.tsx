@@ -150,12 +150,18 @@ function HomePage() {
                 </div>
             </div>
             {/* Terminal UI under introduction */}
-            <div className="terminal-box" style={{ margin: "0 auto", maxWidth: 800, minHeight: 220 }}>
+            <div className="terminal-box" style={{ margin: "0 auto", maxWidth: 980, minWidth: 520, minHeight: 220 }}>
                 <div className="terminal-header">PortfolioShell v1.0.0</div>
                 <div className="terminal-comment">Copyright (c) Zawad Atif. All rights reserved.</div>
                 <div className="terminal-comment">Type <span style={{ color: '#5eff00' }}>'help'</span> for available commands.</div>
-                <div style={{ marginTop: '2rem', color: '#5eff00', fontFamily: 'Fira Mono, Consolas, monospace' }}>
-                    $ <input
+                <div style={{ marginTop: '2.2rem', display: 'flex', alignItems: 'center', fontFamily: 'Fira Mono, Consolas, monospace', fontSize: '1.25rem', color: '#5eff00', position: 'relative', zIndex: 2 }}>
+                    <span style={{ color: '#7fff7f', marginRight: 6 }}>
+                        <span style={{ color: '#5eff00' }}>zawad@portfolio</span>
+                        <span style={{ color: '#b2ffb2' }}>:</span>
+                        <span style={{ color: '#00d400' }}>&#126;</span>
+                        <span style={{ color: '#b2ffb2' }}>$</span>
+                    </span>
+                    <input
                         type="text"
                         value={command}
                         onChange={handleCommandChange}
@@ -164,9 +170,10 @@ function HomePage() {
                             border: "none",
                             outline: "none",
                             color: "#5eff00",
-                            fontSize: "1.2rem",
+                            fontSize: "1.25rem",
                             fontFamily: "Fira Mono, Consolas, monospace",
-                            width: "80%",
+                            width: "82%",
+                            marginLeft: 2,
                         }}
                         autoFocus
                         spellCheck={false}
