@@ -85,7 +85,7 @@ function HomePage() {
     return (
         <div
             style={{
-                background: "linear-gradient(180deg, #181818 0%, #232323 100%)",
+                background: "#181818",
                 minHeight: "100vh",
                 width: "100vw",
                 fontFamily: "'VT323', monospace",
@@ -100,33 +100,40 @@ function HomePage() {
                 overflow: "hidden",
             }}
         >
-            {/* CRT curve/vignette overlay */}
-            <div
-                style={{
-                    pointerEvents: "none",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 3,
-                        background:
-                            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.18) 100%)",
-                }}
-            />
+            {/* CRT vignette overlay */}
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 3,
+                background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%)"
+            }} />
             {/* Scanline overlay for vintage effect */}
-            <div
-                style={{
-                    pointerEvents: "none",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 2,
-                        background: "repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(0,0,0,0.05) 17px)",
-                }}
-            />
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 2,
+                background: "repeating-linear-gradient(0deg, transparent, transparent 13px, rgba(0,0,0,0.10) 14px)",
+                mixBlendMode: "overlay"
+            }} />
+            {/* Subtle CRT glow */}
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 4,
+                background: "radial-gradient(circle at 50% 40%, rgba(94,255,0,0.08) 0%, rgba(0,0,0,0) 60%)"
+            }} />
             {/* Intro at top center */}
             <div
                 style={{
